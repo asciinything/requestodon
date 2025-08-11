@@ -1,0 +1,40 @@
+/* Places your bar at the very top, under the overlay titlebar */
+.titlebar {
+  position: fixed;
+  inset: 0 0 auto 0;
+  height: 34px;
+  display: flex;
+  align-items: center;
+  -webkit-user-select: none;
+  user-select: none;
+  backdrop-filter: saturate(180%) blur(10px); /* optional glassy feel */
+  padding-left: 10px;
+  padding-right: 10px;
+}
+
+.drag-region {
+    -webkit-app-region: drag;
+    height: 100%;
+    flex-grow: 1;
+}
+
+/* Your interactive controls must not be draggable */
+.toolbar { display: flex; gap: 6px; padding: 0 10px; }
+.tb-btn {
+  -webkit-app-region: no-drag;
+  border: 0; background: transparent; padding: 6px 10px; border-radius: 8px;
+}
+.tb-btn:hover { background: rgba(0,0,0,.08); }
+.tb-btn.danger:hover { background: rgba(255,0,0,.12); }
+
+.tb-input {
+  -webkit-app-region: no-drag;
+  border: 1px solid rgba(0,0,0,.1);
+  background: rgba(0,0,0,.05);
+  padding: 4px 8px;
+  border-radius: 8px;
+}
+
+/* Push page content below the overlay bar */
+html, body { height: 100%; }
+body { padding-top: 34px; }

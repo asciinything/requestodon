@@ -1,0 +1,259 @@
+0) Goals
+
+    Preserve native macOS window controls (red/yellow/green, full-screen, window snapping, system behaviors).
+
+    Render your own HTML/CSS bar under/around them.
+
+    Use a draggable region so the window still drags like a native titlebar.
+    Tauri
+
+1) Tauri window configuration
+
+Keep decorations ON and switch the titlebar to an overlay so macOS draws the traffic lights while your content sits “beneath” them.
+
+src-tauri/tauri.conf.json
+
+{
+  "app": {
+    "windows": [
+      {
+        "label": "main",
+        "title": "MyApp",
+        "width": 1100,
+        "height": 740,
+
+        // KEY SETTINGS:
+        "decorations": true,
+        "titleBarStyle": "Overlay",
+
+        // Optional (macOS only, Tauri 2.4+): nudge the lights to fit your layout
+        "trafficLightPosition": { "x": 12, "y": 10 }
+      }
+    ]
+  }
+}
+
+    titleBarStyle: "Overlay" is the macOS style that shows the native titlebar as a transparent overlay over your webview. Your HTML will be visible under it.
+    Tauri
+
+    trafficLightPosition (v2.4+) lets you fine-tune where the buttons sit, useful when your design needs them inset/aligned. Adjust pixels to taste.
+    Tauri
+
+    Do not set "decorations": false here. That removes the native buttons entirely (that’s the “full custom” route). We want them visible so macOS behaviors remain native.
+    Tauri
+
+2) Capabilities / permissions (v2 security model)
+
+Ensure your window API calls (minimize, toggle maximize, close, and drag) are permitted.
+
+src-tauri/capabilities/main.json
+
+{
+  "$schema": "../gen/schemas/desktop-schema.json",
+  "identifier": "main-capability",
+  "description": "Window control permissions for main window",
+  "windows": ["main"],
+  "permissions": [
+    "core:window:default",
+    "core:window:allow-start-dragging",
+    "core:window:allow-minimize",
+    "core:window:allow-toggle-maximize",
+    "core:window:allow-close"
+  ]
+}
+
+These map to the window API you’ll call from JS and enable drag behavior.
+Tauri
+3) SolidJS titlebar component
+
+Create a titlebar that:
+
+    Leaves room under the traffic lights.
+
+    Provides a drag region.
+
+    Adds optional custom buttons on the right (wired to Tauri’s window API).
+
+src/components/Titlebar.tsx
+
+import type { JSX } from "solid-js";
+import { getCurrentWindow } from "@tauri-apps/api/window";
+
+const appWindow = getCurrentWindow();
+
+export default function Titlebar(): JSX.Element {
+  const minimize = () => appWindow.minimize();
+  const toggleMax = async () =>
+    (await appWindow.isMaximized()) ? appWindow.unmaximize() : appWindow.maximize();
+  const close = () => appWindow.close();
+
+  return (
+    <div class="titlebar">
+      {/* Draggable filler that sits beneath the native traffic lights */}
+      <div data-tauri-drag-region class="drag-fill" />
+
+      {/* Your buttons / breadcrumbs / tabs, etc. */}
+      <div class="toolbar" aria-label="window controls">
+        <button class="tb-btn" onClick={minimize} title="Minimize">—</button>
+        <button class="tb-btn" onClick={toggleMax} title="Zoom">▢</button>
+        <button class="tb-btn danger" onClick={close} title="Close">×</button>
+      </div>
+    </div>
+  );
+}
+
+Wire it into your root layout and import the CSS:
+
+// src/App.tsx (or your root component)
+import Titlebar from "./components/Titlebar";
+import "./styles/titlebar.css";
+
+export default function App() {
+  return (
+    <>
+      <Titlebar />
+      {/* rest of your app */}
+    </>
+  );
+}
+
+    The JS window methods (minimize, toggleMaximize, close) are from @tauri-apps/api/window.
+    Tauri
+
+4) CSS: drag region + layout
+
+src/styles/titlebar.css
+
+/* Places your bar at the very top, under the overlay titlebar */
+.titlebar {
+  position: fixed;
+  inset: 0 0 auto 0;
+  height: 34px;
+  display: grid;
+  grid-template-columns: 1fr auto; /* left: empty/drag under lights; right: your controls */
+  align-items: center;
+  -webkit-user-select: none;
+  user-select: none;
+  backdrop-filter: saturate(180%) blur(10px); /* optional glassy feel */
+}
+
+/* The draggable portion. Tauri maps the data attribute; use webkit property as a fallback */
+.drag-fill {
+  height: 100%;
+  -webkit-app-region: drag;
+}
+
+/* Your interactive controls must not be draggable */
+.toolbar { display: flex; gap: 6px; padding: 0 10px; }
+.tb-btn {
+  -webkit-app-region: no-drag;
+  border: 0; background: transparent; padding: 6px 10px; border-radius: 8px;
+}
+.tb-btn:hover { background: rgba(0,0,0,.08); }
+.tb-btn.danger:hover { background: rgba(255,0,0,.12); }
+
+/* Push page content below the overlay bar */
+html, body { height: 100%; }
+body { padding-top: 34px; }
+
+Drag rules that matter:
+
+    data-tauri-drag-region applies only to the element it’s on, not its children. Keep interactive elements (button, input) outside that region or mark them no-drag.
+    Tauri
+
+    You can also handle drag manually with appWindow.startDragging() on mousedown (often used to add “double-click to zoom” behavior).
+    Tauri
+
+5) (Optional) Fine-tune traffic light placement
+
+If the buttons collide with your content, nudge them:
+
+    Config (easiest): trafficLightPosition in tauri.conf.json.
+
+    Rust (builder): set it at build time.
+
+// src-tauri/src/lib.rs (snippet)
+use tauri::{TitleBarStyle, WebviewUrl, WebviewWindowBuilder};
+use tauri::dpi::{LogicalPosition, Position};
+
+pub fn run() {
+  tauri::Builder::default()
+    .setup(|app| {
+      WebviewWindowBuilder::new(app, "main", WebviewUrl::default())
+        .title_bar_style(TitleBarStyle::Overlay)
+        .traffic_light_position(Position::Logical(LogicalPosition::new(12.0, 10.0)))
+        .build()
+        .expect("Failed to build window");
+      Ok(())
+    })
+    .run(tauri::generate_context!())
+    .expect("error while running tauri");
+}
+
+The config key and the builder method both shipped in Tauri 2.4.0.
+Tauri
+6) Build & test
+
+# dev
+pnpm tauri dev
+# or
+npm run tauri dev
+
+Test cases on macOS:
+
+    Drag the window by the left area under the traffic lights.
+
+    Double-click in that same area to toggle maximize (or wire it manually using startDragging + toggleMaximize).
+    Tauri
+
+    Hover/click the native lights; ensure your toolbar on the right is clickable (no accidental drag).
+
+    Full-screen and window snapping still behave like a normal app (that’s the point of keeping decorations).
+    Tauri
+
+7) Troubleshooting
+
+    Can’t drag at all (Overlay on macOS):
+    Make sure data-tauri-drag-region is on an actual visible element and not covered by another element. Also ensure the capability core:window:allow-start-dragging is present. Some Sonoma releases had overlay/drag quirks—always test on the latest Tauri.
+    Tauri
+    GitHub
+    Tauri
+
+    Buttons don’t respond:
+    Add -webkit-app-region: no-drag to your interactive elements, or keep them outside the drag element.
+    Tauri
+
+    Traffic lights overlap your content:
+    Increase left padding in .titlebar or tweak trafficLightPosition.
+    Tauri
+
+    Need a fully transparent bar with native behavior:
+    Consider the Transparent titlebar style and set the window background color via Rust (macOS-specific example in the docs).
+    Tauri
+
+8) Optional helpers
+
+    Drop-in controls: @tauri-controls/solid gives native-looking control clusters you can place on your bar (still keeping the real macOS lights visible on the left).
+    npm
+    GitHub
+
+    Inset / polish via plugin: tauri-plugin-decorum helps inset traffic lights and handle overlay niceties on macOS (v2).
+    GitHub
+    Lib.rs
+
+9) Why this pattern
+
+Tauri’s docs explicitly suggest using transparent/overlay titlebars on macOS when you want custom UI but don’t want to lose native window behaviors. This pattern preserves system features while giving you full control over layout.
+Tauri+1
+Done-for-you snippets (quick copy)
+
+    tauri.conf.json → add "titleBarStyle": "Overlay", keep "decorations": true, optionally add "trafficLightPosition".
+    Tauri
+
+    capabilities/main.json → add window permissions including allow-start-dragging.
+    Tauri
+
+    Add <Titlebar /> + CSS above; ensure data-tauri-drag-region only on the area you want to drag.
+    Tauri
+
+If you want me to tailor the CSS so the traffic lights align perfectly with your exact bar height/margins, share a screenshot/mockup and I’ll tweak the numbers.
