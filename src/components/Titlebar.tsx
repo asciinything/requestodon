@@ -1,20 +1,19 @@
 import { createSignal, onMount, Show } from "solid-js";
 import type { JSX } from "solid-js";
-import { type as getOsType } from "@tauri-apps/api/os";
+import { platform } from '@tauri-apps/plugin-os';
 import WindowControls from "./WindowControls";
 
 export default function Titlebar(): JSX.Element {
-  const [osType, setOsType] = createSignal<string | null>(null);
 
   onMount(async () => {
-    const os = await type();
-    setOsType(os);
   });
+
+    const currentPlatform = platform();
 
   return (
     <div class="titlebar">
         <div class="drag-region" data-tauri-drag-region>
-            <Show when={osType() === 'Darwin'}>
+            <Show when={currentPlatform === 'windows'}>
                 <div style="width: 70px;"></div>
             </Show>
         </div>
@@ -26,7 +25,7 @@ export default function Titlebar(): JSX.Element {
 
         <div class="drag-region" data-tauri-drag-region />
 
-        <Show when={osType() !== 'Darwin'}>
+        <Show when={currentPlatform === 'windows'}>
             <WindowControls />
         </Show>
     </div>
