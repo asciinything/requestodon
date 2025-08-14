@@ -1,7 +1,8 @@
 
 import type { JSX } from "solid-js";
-import { Button } from "~/components/ui/button";
+import { Button } from "./ui/button";
 import { TbChevronDown, TbClock, TbDeviceFloppy, TbShare } from "solid-icons/tb";
+import Astronaut from "../assets/astronaut.svg?component-solid";
 
 export default function RequestView(): JSX.Element {
   return (
@@ -47,7 +48,7 @@ export default function RequestView(): JSX.Element {
             </div>
         </div>
         <div class="response-content empty">
-            <img src="/src/assets/astronaut.svg" alt="astronaut" />
+            <Astronaut />
             <p>Enter the URL and click Send to get a response</p>
         </div>
       </div>

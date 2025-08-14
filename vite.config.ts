@@ -2,12 +2,13 @@
 import path from "path";
 import { defineConfig } from "vite";
 import solid from "vite-plugin-solid";
+import solidSvg from "vite-plugin-solid-svg";
 
 const host = process.env.TAURI_DEV_HOST;
 
 // https://vite.dev/config/
 export default defineConfig(async () => ({
-  plugins: [solid()],
+  plugins: [solid(), solidSvg({ svgr: { svgo: false } })],
     resolve: {
         alias: {
             "~": path.resolve(__dirname, "./src")

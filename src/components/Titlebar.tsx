@@ -1,10 +1,10 @@
-import { createSignal, onMount, Show } from "solid-js";
-import type { JSX } from "solid-js";
+import { createSignal, onMount, Show, type JSX } from "solid-js";
 import { platform } from '@tauri-apps/plugin-os';
 import WindowControls from "./WindowControls";
-import { Button } from "~/components/ui/button";
+import { Button } from "./ui/button";
 import Menu from "./Menu";
 import Search from "./Search";
+import ThemeSelector from "./ThemeSelector";
 
 export default function Titlebar(): JSX.Element {
 
@@ -33,6 +33,7 @@ export default function Titlebar(): JSX.Element {
         <div class="drag-region" data-tauri-drag-region />
 
         <div class="titlebar-actions">
+            <ThemeSelector />
             <Button variant="ghost">Invite</Button>
             {/* Add more action buttons here */}
         </div>

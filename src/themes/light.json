@@ -1,0 +1,10 @@
+{
+  "name": "Light",
+  "colors": {
+    "primary": "#ffffff",
+    "secondary": "#f0f0f0",
+    "text": "#000000",
+    "accent": "#4caf50",
+    "border": "#cccccc"
+  }
+}

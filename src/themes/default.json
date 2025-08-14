@@ -1,0 +1,10 @@
+{
+  "name": "Default Dark",
+  "colors": {
+    "primary": "#1e1e1e",
+    "secondary": "#2a2a2a",
+    "text": "#ffffff",
+    "accent": "#4caf50",
+    "border": "#444444"
+  }
+}

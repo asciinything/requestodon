@@ -1,6 +1,6 @@
 
 import type { JSX } from "solid-js";
-import { Button } from "~/components/ui/button";
+import { Button } from "./ui/button";
 import { TbBox, TbChevronRight, TbCode, TbFile, TbHistory, TbPlus } from "solid-icons/tb";
 
 export default function Sidebar(): JSX.Element {

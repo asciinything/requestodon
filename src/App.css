@@ -12,7 +12,7 @@
   font-weight: 400;
 
   color: #0f0f0f;
-  background-color: #1e1e1e;
+  background-color: var(--color-primary);
 
   font-synthesis: none;
   text-rendering: optimizeLegibility;
