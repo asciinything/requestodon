@@ -2,6 +2,7 @@ import { createSignal, onMount, Show } from "solid-js";
 import type { JSX } from "solid-js";
 import { platform } from '@tauri-apps/plugin-os';
 import WindowControls from "./WindowControls";
+import { Button } from "~/components/ui/button";
 
 export default function Titlebar(): JSX.Element {
 
@@ -20,7 +21,7 @@ export default function Titlebar(): JSX.Element {
 
         <div class="toolbar" aria-label="window controls">
             <input class="tb-input" placeholder="Enter text..." />
-            <button class="tb-btn">Go</button>
+            <Button>Click me</Button>
         </div>
 
         <div class="drag-region" data-tauri-drag-region />
