@@ -2,6 +2,7 @@ import Titlebar from "./components/Titlebar";
 import Sidebar from "./components/Sidebar";
 import RequestView from "./components/RequestView";
 import Footer from "./components/Footer";
+import Resizable from "./components/Resizable";
 import { useThemes } from "./lib/ThemeManager";
 import "./styles/titlebar.css";
 import "./styles/sidebar.css";
@@ -17,7 +18,9 @@ function App() {
     <div class="app-container">
       <Titlebar />
       <div class="main-content">
-        <Sidebar />
+        <Resizable>
+          <Sidebar />
+        </Resizable>
         <RequestView />
       </div>
       <Footer />

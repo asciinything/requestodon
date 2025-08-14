@@ -125,3 +125,7 @@ button {
   display: flex;
   flex-grow: 1;
 }
+
+.no-select {
+  user-select: none;
+}

@@ -1,3 +1,42 @@
+.resizable-container {
+  position: relative;
+  display: flex;
+}
+
+.resizable-content {
+  flex-grow: 1;
+  overflow: auto;
+}
+
+.resize-handle {
+  width: 5px;
+  cursor: col-resize;
+  background-color: var(--color-border);
+}
+
+.collapse-handle {
+  position: absolute;
+  top: 50%;
+  right: -15px;
+  width: 15px;
+  height: 30px;
+  background-color: var(--color-border);
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-top-right-radius: 5px;
+  border-bottom-right-radius: 5px;
+}
+
+.resizable-container.collapsed .resizable-content {
+  display: none;
+}
+
+.resizable-container.collapsed {
+  width: 0 !important;
+}
+
 .titlebar-actions {
     display: flex;
     align-items: center;
