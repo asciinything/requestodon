@@ -3,8 +3,24 @@ import type { JSX } from "solid-js";
 import { Button } from "./ui/button";
 import { TbChevronDown, TbClock, TbDeviceFloppy, TbShare } from "solid-icons/tb";
 import Astronaut from "../assets/astronaut.svg?component-solid";
+import Tabs from "./Tabs";
+import Params from "./tabs/Params";
+import Authorization from "./tabs/Authorization";
+import Headers from "./tabs/Headers";
+import Body from "./tabs/Body";
+import Scripts from "./tabs/Scripts";
+import Settings from "./tabs/Settings";
 
 export default function RequestView(): JSX.Element {
+  const tabs = [
+    { title: "Params", content: <Params /> },
+    { title: "Authorization", content: <Authorization /> },
+    { title: "Headers", content: <Headers /> },
+    { title: "Body", content: <Body /> },
+    { title: "Scripts", content: <Scripts /> },
+    { title: "Settings", content: <Settings /> },
+  ];
+
   return (
     <div class="request-view">
         <div class="request-tabs">
@@ -27,17 +43,7 @@ export default function RequestView(): JSX.Element {
         </div>
       </div>
       <div class="request-body">
-        <div class="tabs">
-          <div class="tab">Params</div>
-          <div class="tab">Authorization</div>
-          <div class="tab">Headers</div>
-          <div class="tab active">Body</div>
-          <div class="tab">Scripts</div>
-          <div class="tab">Settings</div>
-        </div>
-        <div class="tab-content">
-          {/* Tab content will go here */}
-        </div>
+        <Tabs tabs={tabs} />
       </div>
       <div class="response-view">
         <div class="response-header">
