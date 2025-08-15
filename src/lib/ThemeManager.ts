@@ -20,7 +20,7 @@ export const loadThemes = async (): Promise<Theme[]> => {
 export const applyTheme = (theme: Theme) => {
   const root = document.documentElement;
   for (const [name, color] of Object.entries(theme.colors)) {
-    root.style.setProperty(`--color-${name}`, color);
+    root.style.setProperty(name, color);
   }
   setCurrentTheme(theme);
 };

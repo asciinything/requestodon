@@ -1,10 +1,20 @@
 {
   "name": "Light",
   "colors": {
-    "primary": "#ffffff",
-    "secondary": "#f0f0f0",
-    "text": "#000000",
-    "accent": "#4caf50",
-    "border": "#cccccc"
+    "--vite-logo-hover-shadow": "#747bff",
+    "--solid-logo-hover-shadow": "#2f5d90",
+    "--color-white": "#ffffff",
+    "--color-black": "#0f0f0f",
+    "--tauri-logo-hover-shadow": "#24c8db",
+    "--link-color": "#646cff",
+    "--link-hover-color": "#535bf2",
+    "--box-shadow-color": "rgba(0, 0, 0, 0.2)",
+    "--button-border-color": "#396cd8",
+    "--button-active-bg": "#e8e8e8",
+    "--dark-mode-text-color": "#0f0f0f",
+    "--dark-mode-bg": "#ffffff",
+    "--dark-mode-input-bg": "#ffffff",
+    "--dark-mode-input-active-bg": "#e8e8e8",
+    "--color-primary": "#ffffff"
   }
 }
