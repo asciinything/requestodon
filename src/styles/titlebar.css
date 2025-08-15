@@ -19,7 +19,7 @@
 }
 
 /* Your interactive controls must not be draggable */
-.toolbar { display: flex; gap: 6px; padding: 0 10px; }
+.toolbar { display: flex; gap: 6px; padding: 0 10px; align-items: center;}
 .tb-btn {
   -webkit-app-region: no-drag;
   border: 0; background: transparent; padding: 6px 10px; border-radius: 8px;
@@ -38,3 +38,8 @@
 /* Push page content below the overlay bar */
 html, body { height: 100%; }
 body { padding-top: 34px; }
+
+.titlebar .toolbar .button {
+    border: none;
+    padding: 0;
+}
