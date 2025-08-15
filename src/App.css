@@ -106,6 +106,7 @@ html, body {
 }
 
 body {
+    margin: 0;
   padding-top: 34px;
   box-sizing: border-box;
 }
