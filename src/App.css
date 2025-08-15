@@ -118,15 +118,26 @@ button {
   }
 }
 
+html, body {
+  height: 100%;
+  overflow: hidden;
+}
+
+body {
+  padding-top: 34px;
+  box-sizing: border-box;
+}
+
 .app-container {
   display: flex;
   flex-direction: column;
-  height: 100vh;
+  height: calc(100vh - 34px); /* Full viewport height minus titlebar */
 }
 
 .main-content {
   display: flex;
   flex-grow: 1;
+  overflow: hidden; /* Prevent this container from scrolling */
 }
 
 .no-select {
