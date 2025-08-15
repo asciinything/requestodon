@@ -1,6 +1,6 @@
 
 .footer {
-  height: 30px;
+  height: 70px;
   background-color: var(--color-toolbar-bg);
   border-top: 1px solid var(--color-border);
   display: flex;
