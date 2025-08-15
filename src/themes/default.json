@@ -19,7 +19,8 @@
     "--color-sidebar-bg": "#252526",
     "--color-resize-handle": "#444444",
     "--color-resize-handle-hover": "#555555",
-    "--color-text": "white"
+    "--color-text": "white",
+    "--color-toolbar-bg": "#2f2f2f"
 
   }
 }
