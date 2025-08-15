@@ -20,14 +20,16 @@
 
 .sidebar-actions {
     display: flex;
-    justify-content: space-around;
+    justify-content: flex-start;
     padding: 10px 0;
+    gap: 10px;
 }
 
 .sidebar-content {
   flex-grow: 1;
   padding: 10px;
-  overflow: auto;
+  overflow-x: hidden;
+  overflow-y: auto;
 }
 
 .collections-list {
