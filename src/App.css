@@ -6,6 +6,7 @@
   filter: drop-shadow(0 0 2em #2f5d90);
 }
 :root {
+  --color-primary: #ffffff; /* default, will be overridden by the applied theme */
   font-family: Inter, Avenir, Helvetica, Arial, sans-serif;
   font-size: 16px;
   line-height: 24px;
