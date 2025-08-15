@@ -1,18 +1,20 @@
+@import './styles/colors.css';
+
 .logo.vite:hover {
-  filter: drop-shadow(0 0 2em #747bff);
+  filter: drop-shadow(0 0 2em var(--vite-logo-hover-shadow));
 }
 
 .logo.solid:hover {
-  filter: drop-shadow(0 0 2em #2f5d90);
+  filter: drop-shadow(0 0 2em var(--solid-logo-hover-shadow));
 }
 :root {
-  --color-primary: #ffffff; /* default, will be overridden by the applied theme */
+  --color-primary: var(--color-white); /* default, will be overridden by the applied theme */
   font-family: Inter, Avenir, Helvetica, Arial, sans-serif;
   font-size: 16px;
   line-height: 24px;
   font-weight: 400;
 
-  color: #0f0f0f;
+  color: var(--color-black);
   background-color: var(--color-primary);
 
   font-synthesis: none;
@@ -39,7 +41,7 @@
 }
 
 .logo.tauri:hover {
-  filter: drop-shadow(0 0 2em #24c8db);
+  filter: drop-shadow(0 0 2em var(--tauri-logo-hover-shadow));
 }
 
 .row {
@@ -49,12 +51,12 @@
 
 a {
   font-weight: 500;
-  color: #646cff;
+  color: var(--link-color);
   text-decoration: inherit;
 }
 
 a:hover {
-  color: #535bf2;
+  color: var(--link-hover-color);
 }
 
 h1 {
@@ -69,10 +71,10 @@ button {
   font-size: 1em;
   font-weight: 500;
   font-family: inherit;
-  color: #0f0f0f;
-  background-color: #ffffff;
+  color: var(--color-black);
+  background-color: var(--color-white);
   transition: border-color 0.25s;
-  box-shadow: 0 2px 2px rgba(0, 0, 0, 0.2);
+  box-shadow: 0 2px 2px var(--box-shadow-color);
 }
 
 button {
@@ -80,11 +82,11 @@ button {
 }
 
 button:hover {
-  border-color: #396cd8;
+  border-color: var(--button-border-color);
 }
 button:active {
-  border-color: #396cd8;
-  background-color: #e8e8e8;
+  border-color: var(--button-border-color);
+  background-color: var(--button-active-bg);
 }
 
 input,
@@ -98,21 +100,21 @@ button {
 
 @media (prefers-color-scheme: dark) {
   :root {
-    color: #f6f6f6;
-    background-color: #2f2f2f;
+    color: var(--dark-mode-text-color);
+    background-color: var(--dark-mode-bg);
   }
 
   a:hover {
-    color: #24c8db;
+    color: var(--tauri-logo-hover-shadow);
   }
 
   input,
   button {
-    color: #ffffff;
-    background-color: #0f0f0f98;
+    color: var(--color-white);
+    background-color: var(--dark-mode-input-bg);
   }
   button:active {
-    background-color: #0f0f0f69;
+    background-color: var(--dark-mode-input-active-bg);
   }
 }
 
