@@ -68,6 +68,7 @@
 
 .tab.active {
     border-bottom: 2px solid var(--color-text);
+    text-decoration: underline;
 }
 
 .tab-content {

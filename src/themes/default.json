@@ -7,17 +7,19 @@
     "--color-black": "#0f0f0f",
     "--tauri-logo-hover-shadow": "#24c8db",
     "--link-color": "#646cff",
-    "--link-hover-color": "#24c8db",
+    "--link-hover-color": "#535bf2",
     "--box-shadow-color": "rgba(0, 0, 0, 0.2)",
     "--button-border-color": "#396cd8",
-    "--button-active-bg": "#0f0f0f69",
+    "--button-active-bg": "#e8e8e8",
     "--dark-mode-text-color": "#f6f6f6",
     "--dark-mode-bg": "#2f2f2f",
     "--dark-mode-input-bg": "#0f0f0f98",
     "--dark-mode-input-active-bg": "#0f0f0f69",
-    "--color-primary": "#2f2f2f",
-    "--color-sidebar-bg": "#3a3a3a",
+    "--color-primary": "#1e1e1e",
+    "--color-sidebar-bg": "#252526",
     "--color-resize-handle": "#444444",
-    "--color-resize-handle-hover": "#555555"
+    "--color-resize-handle-hover": "#555555",
+    "--color-text": "white"
+
   }
 }

@@ -98,25 +98,7 @@ button {
   margin-right: 5px;
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    color: var(--dark-mode-text-color);
-    background-color: var(--dark-mode-bg);
-  }
 
-  a:hover {
-    color: var(--tauri-logo-hover-shadow);
-  }
-
-  input,
-  button {
-    color: var(--color-white);
-    background-color: var(--dark-mode-input-bg);
-  }
-  button:active {
-    background-color: var(--dark-mode-input-active-bg);
-  }
-}
 
 html, body {
   height: 100%;
