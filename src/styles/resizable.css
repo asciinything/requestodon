@@ -1,11 +1,13 @@
 .resizable-container {
   position: relative;
   display: flex;
+  height: 100%;
 }
 
 .resizable-content {
   flex-grow: 1;
   overflow: auto;
+  display: flex;
 }
 
 .resize-handle {
