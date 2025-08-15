@@ -1,0 +1,20 @@
+.resizable-container {
+  position: relative;
+  display: flex;
+}
+
+.resizable-content {
+  flex-grow: 1;
+  overflow: auto;
+}
+
+.resize-handle {
+  width: 5px;
+  cursor: col-resize;
+  background-color: var(--color-resize-handle);
+  transition: background-color 0.25s;
+}
+
+.resize-handle:hover {
+  background-color: var(--color-resize-handle-hover);
+}

@@ -1,4 +1,5 @@
 import { createSignal, onCleanup, onMount, type JSX } from "solid-js";
+import "../styles/resizable.css";
 
 interface ResizableProps {
   children: JSX.Element;

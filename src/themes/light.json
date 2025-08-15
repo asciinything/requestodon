@@ -15,6 +15,9 @@
     "--dark-mode-bg": "#ffffff",
     "--dark-mode-input-bg": "#ffffff",
     "--dark-mode-input-active-bg": "#e8e8e8",
-    "--color-primary": "#ffffff"
+    "--color-primary": "#ffffff",
+    "--color-sidebar-bg": "#f0f0f0",
+    "--color-resize-handle": "#cccccc",
+    "--color-resize-handle-hover": "#bbbbbb"
   }
 }
