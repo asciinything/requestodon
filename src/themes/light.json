@@ -19,6 +19,7 @@
     "--color-sidebar-bg": "#f0f0f0",
     "--color-resize-handle": "#cccccc",
     "--color-resize-handle-hover": "#bbbbbb",
-    "--color-toolbar-bg": "transparent"
+    "--color-toolbar-bg": "transparent",
+    "--color-icon-primary": "white"
   }
 }

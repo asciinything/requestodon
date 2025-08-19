@@ -30,6 +30,10 @@
     box-shadow: none;            /* no focus ring shadows */
 }
 
+.tb-btn svg {
+    color: var(--color-icon-primary);
+}
+
 /* make sure focus styles don’t sneak back in */
 .tb-btn:focus,
 .tb-btn:focus-visible {

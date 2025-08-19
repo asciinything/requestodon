@@ -20,7 +20,8 @@
     "--color-resize-handle": "#444444",
     "--color-resize-handle-hover": "#555555",
     "--color-text": "white",
-    "--color-toolbar-bg": "transparent"
+    "--color-toolbar-bg": "transparent",
+    "--color-icon-primary": "white"
 
   }
 }

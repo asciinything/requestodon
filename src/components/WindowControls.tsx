@@ -29,11 +29,11 @@ export default function WindowControls(): JSX.Element {
 
     return (
         <>
-            <button class="tb-btn" onClick={minimize} title="Minimize"><VsChromeMinimize size={24} color="red"/></button>
+            <button class="tb-btn" onClick={minimize} title="Minimize"><VsChromeMinimize size={16}/></button>
             <button class="tb-btn" onClick={toggleMax} title="Zoom">
-                {maximized() ? <VsChromeRestore size={24} color="red"/> : <VsChromeMaximize size={24} color="red"/>}
+                {maximized() ? <VsChromeRestore size={16}/> : <VsChromeMaximize size={16}/>}
             </button>
-            <button class="tb-btn danger" onClick={close} title="Close"><VsChromeClose size={24} color="red"/></button>
+            <button class="tb-btn danger" onClick={close} title="Close"><VsChromeClose size={16}/></button>
         </>
     );
 }
