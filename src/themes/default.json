@@ -20,9 +20,10 @@
     "--color-resize-handle": "#444444",
     "--color-resize-handle-hover": "#555555",
     "--color-text": "white",
-    "--color-toolbar-bg": "transparent",
+    "--color-toolbar-bg": "#3C3C3C",
     "--color-icon-primary": "white",
-    "--color-toolbar-btn-hover-bg": "#222222"
+    "--color-toolbar-btn-hover-bg": "#222222",
+    "--color-search-bg": "#464646"
 
   }
 }
