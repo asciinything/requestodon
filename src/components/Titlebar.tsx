@@ -5,6 +5,7 @@ import Search from "./Search";
 import ThemeSelector from "./ThemeSelector";
 import { FaSolidGear } from 'solid-icons/fa'
 import { FaRegularCircleUser } from 'solid-icons/fa';
+import { FiMenu } from 'solid-icons/fi';
 import { NavigationMenu, NavigationMenuContent, NavigationMenuItem, NavigationMenuTrigger } from "./ui/navigation-menu";
 
 export default function Titlebar(): JSX.Element {
@@ -16,9 +17,12 @@ export default function Titlebar(): JSX.Element {
 
   return (
     <div class="titlebar">
+        <button class="tb-btn"><FiMenu size={24} /></button>
         <div class="drag-region" data-tauri-drag-region>
             <Show when={currentPlatform === 'windows'}>
-                <div style="width: 70px;"></div>
+                <>
+                    <div style="width: 70px;"></div>
+                </>
             </Show>
         </div>
 
