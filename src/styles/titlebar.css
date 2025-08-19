@@ -9,7 +9,6 @@
   user-select: none;
   background-color: var(--color-toolbar-bg);
   padding-left: 10px;
-  padding-right: 10px;
 }
 
 .drag-region {
@@ -20,12 +19,34 @@
 
 /* Your interactive controls must not be draggable */
 .toolbar { display: flex; gap: 6px; align-items: center;}
-.tb-btn {
-  -webkit-app-region: no-drag;
-  border: 0; background: transparent; padding: 6px 10px; border-radius: 8px;
+.tb-btn{
+    -webkit-app-region: no-drag;
+    appearance: none;            /* remove UA styles */
+    -webkit-appearance: none;
+    border: 0;
+    background: transparent;
+    padding: 6px 10px;
+    outline: none;               /* no outline */
+    box-shadow: none;            /* no focus ring shadows */
 }
-.tb-btn:hover { background: rgba(0,0,0,.08); }
-.tb-btn.danger:hover { background: rgba(255,0,0,.12); }
+
+/* make sure focus styles don’t sneak back in */
+.tb-btn:focus,
+.tb-btn:focus-visible {
+    outline: none !important;
+    box-shadow: none !important;
+}
+
+/* webkit’s inner focus fix */
+.tb-btn::-webkit-focus-inner {
+    border: 0;
+    padding: 0;
+}
+
+/* (optional) if you still see a hover style from a global reset */
+.tb-btn:hover { background: transparent; }
+
+.tb-btn.danger:hover { background: #E81123; }
 
 .tb-input {
   -webkit-app-region: no-drag;
