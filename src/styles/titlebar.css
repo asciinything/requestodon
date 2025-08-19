@@ -25,9 +25,14 @@
     -webkit-appearance: none;
     border: 0;
     background: transparent;
-    padding: 6px 10px;
     outline: none;               /* no outline */
     box-shadow: none;            /* no focus ring shadows */
+    height: var(--titlebar-height);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0;
+    width: 46px;
 }
 
 .tb-btn svg {
