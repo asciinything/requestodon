@@ -34,8 +34,8 @@ export default function Titlebar(): JSX.Element {
         <div class="drag-region" data-tauri-drag-region />
 
         <div class="titlebar-actions">
-            <NavigationMenu>
-                <NavigationMenuItem>
+            <NavigationMenu style={{ "list-style": "none" }}>
+                <NavigationMenuItem style={{ "list-style": "none", "overflow": "hidden" }}>
                     <NavigationMenuTrigger class="tb-btn">
                         <FaSolidGear size={20} />
                     </NavigationMenuTrigger>
