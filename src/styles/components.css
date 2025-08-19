@@ -43,6 +43,18 @@
     padding-right: 10px;
 }
 
+.search-bar {
+    display: flex;
+    align-items: center;
+    position: relative;
+}
+
+.search-bar svg {
+    position: absolute;
+    left: 10px;
+    color: var(--color-icon-primary);
+}
+
 .search-bar input {
     background-color: var(--color-search-bg);
     border: 1px solid var(--color-border);
@@ -51,6 +63,8 @@
     margin-top: .1rem;
     color: var(--color-icon-primary);
     width: 17.5rem;
+    text-align: center;
+    padding-left: 30px;
 }
 
 .menu {
