@@ -5,6 +5,7 @@ import { Button } from "./ui/button";
 import Search from "./Search";
 import ThemeSelector from "./ThemeSelector";
 import { TbSettings } from 'solid-icons/tb';
+import { NavigationMenu, NavigationMenuContent, NavigationMenuItem, NavigationMenuTrigger } from "./ui/navigation-menu";
 
 export default function Titlebar(): JSX.Element {
 
@@ -29,9 +30,17 @@ export default function Titlebar(): JSX.Element {
         <div class="drag-region" data-tauri-drag-region />
 
         <div class="titlebar-actions">
-            <ThemeSelector />
             <Button variant="ghost">Invite</Button>
-            <button class="tb-btn"><TbSettings size={24} /></button>
+            <NavigationMenu>
+                <NavigationMenuItem>
+                    <NavigationMenuTrigger class="tb-btn">
+                        <TbSettings size={24} />
+                    </NavigationMenuTrigger>
+                    <NavigationMenuContent>
+                        <ThemeSelector />
+                    </NavigationMenuContent>
+                </NavigationMenuItem>
+            </NavigationMenu>
             {/* Add more action buttons here */}
         </div>
 
