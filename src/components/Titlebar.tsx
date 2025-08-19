@@ -1,10 +1,10 @@
 import { onMount, Show, type JSX } from "solid-js";
 import { platform } from '@tauri-apps/plugin-os';
 import WindowControls from "./WindowControls";
-import { Button } from "./ui/button";
 import Search from "./Search";
 import ThemeSelector from "./ThemeSelector";
-import { TbSettings } from 'solid-icons/tb';
+import { FaSolidGear } from 'solid-icons/fa'
+import { FaRegularCircleUser } from 'solid-icons/fa';
 import { NavigationMenu, NavigationMenuContent, NavigationMenuItem, NavigationMenuTrigger } from "./ui/navigation-menu";
 
 export default function Titlebar(): JSX.Element {
@@ -30,17 +30,17 @@ export default function Titlebar(): JSX.Element {
         <div class="drag-region" data-tauri-drag-region />
 
         <div class="titlebar-actions">
-            <Button variant="ghost">Invite</Button>
             <NavigationMenu>
                 <NavigationMenuItem>
                     <NavigationMenuTrigger class="tb-btn">
-                        <TbSettings size={24} />
+                        <FaSolidGear size={20} />
                     </NavigationMenuTrigger>
                     <NavigationMenuContent>
                         <ThemeSelector />
                     </NavigationMenuContent>
                 </NavigationMenuItem>
             </NavigationMenu>
+            <button class="tb-btn"><FaRegularCircleUser size={20} /></button>
             {/* Add more action buttons here */}
         </div>
 
