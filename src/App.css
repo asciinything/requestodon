@@ -18,15 +18,10 @@ body {
 
 :root {
     --titlebar-height: 2.4rem;
-    --color-primary: var(--color-white); /* default, will be overridden by the applied theme */
     font-family: Inter, Avenir, Helvetica, Arial, sans-serif;
     font-size: 16px;
     line-height: 24px;
     font-weight: 400;
-
-    color: var(--color-black);
-    background-color: var(--color-primary);
-
     font-synthesis: none;
     text-rendering: optimizeLegibility;
     -webkit-font-smoothing: antialiased;

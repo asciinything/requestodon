@@ -1,5 +1,6 @@
 :root {
-  --vite-logo-hover-shadow: #747bff;
+    --color-primary: var(--color-white);
+    --vite-logo-hover-shadow: #747bff;
   --solid-logo-hover-shadow: #2f5d90;
   --color-white: #ffffff;
   --color-black: #0f0f0f;

@@ -35,7 +35,7 @@ export default function Titlebar(): JSX.Element {
 
         <div class="titlebar-actions">
             <NavigationMenu style={{ "list-style": "none" }}>
-                <NavigationMenuItem style={{ "list-style": "none", "overflow": "hidden" }}>
+                <NavigationMenuItem>
                     <NavigationMenuTrigger class="tb-btn">
                         <FaSolidGear size={20} />
                     </NavigationMenuTrigger>
