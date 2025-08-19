@@ -48,7 +48,7 @@
 }
 
 /* (optional) if you still see a hover style from a global reset */
-.tb-btn:hover { background: transparent; }
+.tb-btn:hover { background: var(--color-toolbar-btn-hover-bg); }
 
 .tb-btn.danger:hover { background: #E81123; }
 

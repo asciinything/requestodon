@@ -21,7 +21,8 @@
     "--color-resize-handle-hover": "#555555",
     "--color-text": "white",
     "--color-toolbar-bg": "transparent",
-    "--color-icon-primary": "white"
+    "--color-icon-primary": "white",
+    "--color-toolbar-btn-hover-bg": "#222222"
 
   }
 }
