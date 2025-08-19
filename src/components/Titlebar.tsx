@@ -4,6 +4,7 @@ import WindowControls from "./WindowControls";
 import { Button } from "./ui/button";
 import Search from "./Search";
 import ThemeSelector from "./ThemeSelector";
+import { TbSettings } from 'solid-icons/tb';
 
 export default function Titlebar(): JSX.Element {
 
@@ -30,6 +31,7 @@ export default function Titlebar(): JSX.Element {
         <div class="titlebar-actions">
             <ThemeSelector />
             <Button variant="ghost">Invite</Button>
+            <button class="tb-btn"><TbSettings size={24} /></button>
             {/* Add more action buttons here */}
         </div>
 
