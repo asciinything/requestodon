@@ -21,7 +21,7 @@
     "--color-resize-handle-hover": "#555555",
     "--color-text": "white",
     "--color-toolbar-bg": "#3C3C3C",
-    "--color-icon-primary": "white",
+    "--color-icon-primary": "#CCCCCC",
     "--color-toolbar-btn-hover-bg": "#222222",
     "--color-search-bg": "#464646"
 

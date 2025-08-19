@@ -20,7 +20,7 @@
     "--color-resize-handle": "#cccccc",
     "--color-resize-handle-hover": "#bbbbbb",
     "--color-toolbar-bg": "transparent",
-    "--color-icon-primary": "white",
+    "--color-icon-primary": "#CCCCCC",
     "--color-toolbar-btn-hover-bg": "#222222",
     "--color-search-bg": "#ffffff"
   }
