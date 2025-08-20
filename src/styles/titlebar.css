@@ -46,6 +46,7 @@
 }
 
 /* webkit’s inner focus fix */
+/*noinspection CssInvalidPseudoSelector*/
 .tb-btn::-webkit-focus-inner {
     border: 0;
     padding: 0;
