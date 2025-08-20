@@ -20,3 +20,7 @@
 .resize-handle:hover {
   background-color: var(--color-resize-handle-hover);
 }
+
+.no-select {
+  user-select: none;
+}
