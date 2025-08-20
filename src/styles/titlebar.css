@@ -1,5 +1,5 @@
 /* Places your bar at the very top, under the overlay titlebar */
-.titlebar {
+.titleBar {
   position: fixed;
   inset: 0 0 auto 0;
   height: var(--titlebar-height);
@@ -8,7 +8,6 @@
   -webkit-user-select: none;
   user-select: none;
   background-color: var(--color-toolbar-bg);
-  padding-left: 10px;
 }
 
 .drag-region {
@@ -66,7 +65,7 @@
 }
 
 
-.titlebar .toolbar .button {
+.titleBar .toolbar .button {
     border: none;
     padding: 0;
 }

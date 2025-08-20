@@ -1,4 +1,4 @@
-import Titlebar from "./components/Titlebar";
+import TitleBar from "./components/TitleBar.tsx";
 import Sidebar from "./components/Sidebar";
 import RequestView from "./components/RequestView";
 import Footer from "./components/Footer";
@@ -16,7 +16,7 @@ function App() {
 
   return (
     <div class="app-container">
-      <Titlebar />
+      <TitleBar />
       <div class="main-content">
         <Resizable>
           <Sidebar />
