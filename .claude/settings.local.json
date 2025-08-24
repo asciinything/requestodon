@@ -1,0 +1,14 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(npm run lint)",
+      "Bash(npm run tauri:*)",
+      "Bash(cargo:*)",
+      "Bash(npm run build:*)",
+      "Bash(timeout 30 npm run tauri dev)",
+      "Bash(taskkill:*)"
+    ],
+    "deny": [],
+    "ask": []
+  }
+}
